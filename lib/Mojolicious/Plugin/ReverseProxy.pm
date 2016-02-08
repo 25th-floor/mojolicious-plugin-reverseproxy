@@ -8,7 +8,8 @@ use Carp qw(croak);
 # instead of using the shared one from app. Who knows
 # what all the others are doing to the poor thing.
 
-my $ua = Mojo::UserAgent->new( cookie_jar => 0 );
+my $ua = Mojo::UserAgent->new;
+$ua->cookie_jar->ignore(sub { 1 });
 
 our $VERSION = '0.703';
 
